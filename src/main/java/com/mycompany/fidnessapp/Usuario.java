@@ -1,13 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.fidnessapp;
 
-/**
- *
- * @author Nicol
- */
-public class Usuario {
-    
+import java.io.Serializable;
+
+public class Usuario extends Persona implements Serializable {
+    private String contrasena;
+
+    public Usuario(String nombre, String apellido, String correo, String contrasena) {
+        super(nombre, apellido, correo);
+        this.contrasena = contrasena;
+    }
+
+    public boolean validarCredenciales(String correo, String contrasena) {
+        return this.correo.equals(correo) && this.contrasena.equals(contrasena);
+    }
+
+    @Override
+    public void mostrarPerfil() {
+        System.out.println(nombre + " " + apellido + " - " + correo);
+    }
 }

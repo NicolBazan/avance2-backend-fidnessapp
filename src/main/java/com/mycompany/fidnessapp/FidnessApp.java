@@ -1,16 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.fidnessapp;
 
-/**
- *
- * @author Nicol
- */
-public class FidnessApp {
+import javax.swing.SwingUtilities;
 
+public class FidnessApp {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        // ✅ Crear tablas en la base de datos al iniciar
+        CrearTablas.crear();
+
+        // ✅ Registrar usuario por defecto en la base de datos
+        UsuarioDAO.registrarUsuario("Nicol Bazán", "nicol@fidness.com", "1234");
+
+        // Iniciar la interfaz gráfica
+        SwingUtilities.invokeLater(() -> new LoginFrame(new SistemaFidness()).setVisible(true));
     }
 }
